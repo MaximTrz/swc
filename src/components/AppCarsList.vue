@@ -3,20 +3,22 @@
     <div class="cars-list__header">
       <div class="cars-list__controls">
         <div class="cars-list__search">
-            <input type="text" class="cars-list__search-input" placeholder="Search VIN" />
+          <input type="text" class="search-input" placeholder="Search VIN" />
         </div>
         <div class="cars-list__select-container">
-            <label for="vehicles-per-page" class="cars-list__label">
-                Select vehicles per page:
-            </label>
-            <select id="vehicles-per-page" class="cars-list__select">
+          <label for="vehicles-per-page" class="cars-list__label">
+            Select vehicles per page:
+          </label>
+          <select id="vehicles-per-page" class="cars-list__select">
             <option value="9">9</option>
             <option value="18">18</option>
             <option value="27">27</option>
-            </select>
+          </select>
         </div>
       </div>
-      <div class="cars-list__add-button"><AppBaseButton text="Add Vechicle" type="add"/></div>
+      <div class="cars-list__add-button">
+        <AppBaseButton text="Add Vechicle" type="add" />
+      </div>
     </div>
     <ul class="cars-list__items">
       <li class="cars-list__item" v-for="index in 9" :key="index">
@@ -55,31 +57,21 @@ export default {
     padding: 20px;
   }
 
-  &__search{
+  &__search {
     position: relative;
-    &::after{
-        position: absolute;
-        content: "";
-        display: block;
-        width: 30px;
-        height: 30px;
-        background: url('../assets/zoom.svg') no-repeat center;
-        background-size: cover;
-        top: 50%;
-        right: -2px;
-        transform: translate(-50%, -50%);
-        transition: background 0.3s ease;
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      background: url("../assets/zoom.svg") no-repeat center;
+      background-size: cover;
+      top: 50%;
+      right: -2px;
+      transform: translate(-50%, -50%);
+      transition: background 0.3s ease;
     }
-  }
-
-  &__search-input{
-    position: relative;
-    border: 1px solid rgba(228, 228, 228, 1);
-    border-radius: 10px;
-    padding: 12px 30px 12px 12px;
-    outline: none;
-    font-size: 16px;
-    font-weight: 400;
   }
 
   &__controls {
