@@ -1,0 +1,15 @@
+.base-select{
+    &__label{
+        margin-right: 20px;
+        font-size: 16px;
+        font-weight: 400;
+    }
+    &__select{
+        border: 1px solid rgba(228, 228, 228, 1);
+        padding: 12px 20px 12px 15px;
+        font-size: 16px;
+        font-weight: 400;
+        border-radius: 10px;
+        outline: none;
+    }
+}

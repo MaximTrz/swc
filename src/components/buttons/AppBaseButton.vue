@@ -33,7 +33,7 @@ export default {
     background-color: #ff4858;
     border: 1px solid #ff4858;
     color: #fff;
-    padding: 10px 15px 10px 40px;
+    padding: 10px 15px 10px 80px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
@@ -41,6 +41,11 @@ export default {
 
     .base-button__text {
         position: relative;
+        text-transform: uppercase;
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 20px;
+        letter-spacing: 1px;
         &::before {
             position: absolute;
             content: "";
@@ -49,7 +54,7 @@ export default {
             height: 25px;
             background-size: cover;
             top: 50%;
-            left: -20px;
+            left: -55px;
             transform: translate(-50%, -50%);
             transition: background 0.3s ease;
         }

@@ -1,12 +1,12 @@
 <template>
   <div class="car-card">
     <div class="car-card__header">
-      <span class="car-card__menu-icon">•••</span>
+      <span class="car-card__menu-icon">...</span>
     </div>
-    <img class="car-card__image" src="../assets/mersedes.png" alt="Car Image" />
+    <img class="car-card__image" :src="image" alt="Car Image" />
     <div class="car-card__content">
-      <h3 class="car-card__title">Mercedes-Benz C-Class</h3>
-      <p class="car-card__vin">WDB 140O321A333419</p>
+      <h3 class="car-card__title">{{ title }}</h3>
+      <p class="car-card__vin">{{ vin }}</p>
       <div class="car-card__footer">
         <span class="car-card__status">
           <i class="car-card__check-icon">✔</i> 30/30
@@ -19,7 +19,21 @@
 
 <script>
 export default {
-  name: 'CarCard'
+  name: 'CarCard',
+  props: {
+    title: {
+      type: String,
+      required: true
+    },
+    vin: {
+      type: String,
+      required: true
+    },
+    image: {
+      type: String,
+      required: true
+    }
+  }
 }
 </script>
 
@@ -47,8 +61,8 @@ export default {
     }
 
     &__image {
-        width: 100%;
-        max-width: 260px;
+        width: auto;
+        max-height: 135px;
         border-radius: 8px;
     }
 
@@ -93,5 +107,4 @@ export default {
         color: #7a8ca1;
     }
 }
-
 </style>

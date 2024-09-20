@@ -3,40 +3,84 @@
     <div class="cars-list__header">
       <div class="cars-list__controls">
         <div class="cars-list__search">
-          <input type="text" class="search-input" placeholder="Search VIN" />
+          <div class="search-input">
+            <input
+              type="text"
+              class="search-input__input"
+              placeholder="Search VIN"
+              v-model="searchQuery"
+              @input="fetchCars"
+            />
+          </div>
         </div>
-        <div class="cars-list__select-container">
-          <label for="vehicles-per-page" class="cars-list__label">
-            Select vehicles per page:
-          </label>
-          <select id="vehicles-per-page" class="cars-list__select">
-            <option value="9">9</option>
-            <option value="18">18</option>
-            <option value="27">27</option>
-          </select>
+        <div class="cars-list__select">
+          <div class="base-select">
+            <label for="vehicles-per-page" class="base-select__label">
+              Select vehicles per page:
+            </label>
+            <select
+              id="vehicles-per-page"
+              class="base-select__select"
+              v-model.number="perPage"
+            >
+              <option value="9">9</option>
+              <option value="18">18</option>
+              <option value="27">27</option>
+            </select>
+          </div>
         </div>
       </div>
       <div class="cars-list__add-button">
-        <AppBaseButton text="Add Vechicle" type="add" />
+        <AppBaseButton text="Add Vehicle" type="add" />
       </div>
     </div>
     <ul class="cars-list__items">
-      <li class="cars-list__item" v-for="index in 9" :key="index">
-        <AppCarCard />
+      <li
+        class="cars-list__item"
+        v-for="car in cars"
+        :key="car.vin"
+      >
+        <AppCarCard
+          :title="car.title"
+          :vin="car.vin"
+          :image="car.placeholder"
+        />
       </li>
     </ul>
     <div class="cars-list__footer">
-      <span class="cars-list__info">Showing 9 out of 256</span>
+      <span class="cars-list__info">
+        Showing {{ cars.length }} out of {{ total }}
+      </span>
       <div class="cars-list__pagination">
-        <button class="cars-list__pagination-button" disabled></button>
-        <span class="cars-list__pagination-info">Page 1 of 10</span>
-        <button class="cars-list__pagination-button"></button>
+        <div class="pagination">
+          <button
+            class="pagination__button"
+            :disabled="page === 1"
+            @click="page--"
+          >
+            &lt;
+          </button>
+          <span class="pagination__info">
+            Page
+            <span class="pagination__page">{{ page }}</span>
+            of
+            <span class="pagination__page">{{ lastPage }}</span>
+          </span>
+          <button
+            class="pagination__button"
+            :disabled="page === lastPage"
+            @click="page++"
+          >
+            >
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
 import AppCarCard from './AppCarCard.vue'
 import AppBaseButton from './buttons/AppBaseButton.vue'
 export default {
@@ -44,6 +88,50 @@ export default {
   components: {
     AppCarCard,
     AppBaseButton
+  },
+  data () {
+    return {
+      cars: [],
+      searchQuery: '',
+      perPage: 9,
+      page: 1,
+      totalCars: 0,
+      lastPage: 0,
+      total: 0
+    }
+  },
+  watch: {
+    page () {
+      this.fetchCars()
+    },
+    perPage () {
+      this.page = 1
+      this.fetchCars()
+    }
+  },
+  methods: {
+    fetchCars () {
+      axios
+        .get('https://api.caiman-app.de/api/cars-test', {
+          params: {
+            search: this.searchQuery,
+            per_page: this.perPage,
+            page: this.page
+          }
+        })
+        .then((response) => {
+          this.cars = response.data.data
+          this.totalCars = response.data.total
+          this.lastPage = response.data.meta.last_page
+          this.total = response.data.meta.total
+        })
+        .catch((error) => {
+          console.error('Error fetching cars:', error)
+        })
+    }
+  },
+  mounted () {
+    this.fetchCars()
   }
 }
 </script>
@@ -54,45 +142,18 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-  }
-
-  &__search {
-    position: relative;
-    &::after {
-      position: absolute;
-      content: "";
-      display: block;
-      width: 30px;
-      height: 30px;
-      background: url("../assets/zoom.svg") no-repeat center;
-      background-size: cover;
-      top: 50%;
-      right: -2px;
-      transform: translate(-50%, -50%);
-      transition: background 0.3s ease;
-    }
+    padding: 30px;
   }
 
   &__controls {
     display: flex;
     align-items: center;
+    width: 60%;
   }
 
-  &__select-container {
-    display: flex;
-    align-items: center;
-    margin-right: 10px;
-
-    &__label {
-      margin-right: 5px;
-    }
-
-    &__select {
-      padding: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-    }
+  &__search{
+    margin-right: 30px;
+    flex-basis: 350px;
   }
 
   &__items {
