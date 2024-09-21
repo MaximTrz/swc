@@ -9,7 +9,7 @@
       <p class="car-card__vin">{{ vin }}</p>
       <div class="car-card__footer">
         <span class="car-card__status">
-          <i class="car-card__check-icon">✔</i> 30/30
+          30/30
         </span>
         <span class="car-card__time-left">3 days left</span>
       </div>
@@ -39,6 +39,7 @@ export default {
 
 <style lang="scss">
 .car-card {
+    cursor: pointer;
     background-color: #f8faff;
     border-radius: 12px;
     padding: 16px;
@@ -82,6 +83,8 @@ export default {
         font-size: 14px;
         color: #7a8ca1;
         margin: 4px 0;
+        border-bottom: 1px solid rgba(228, 228, 228, 1);
+        padding-bottom: 20px;
     }
 
     &__footer {
@@ -95,7 +98,9 @@ export default {
         display: flex;
         align-items: center;
         font-size: 14px;
-        color: #4caf50;
+        background-color: rgba(243, 246, 248, 1);
+        padding: 10px;
+        border-radius: 5px;
     }
 
     &__check-icon {

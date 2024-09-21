@@ -33,7 +33,7 @@ export default {
     background-color: #ff4858;
     border: 1px solid #ff4858;
     color: #fff;
-    padding: 10px 15px 10px 80px;
+    padding: 10px 15px 10px 40px;
     border-radius: 8px;
     cursor: pointer;
     font-size: 14px;
@@ -41,37 +41,27 @@ export default {
 
     .base-button__text {
         position: relative;
-        text-transform: uppercase;
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 20px;
-        letter-spacing: 1px;
         &::before {
+            padding: 0;
+            font-size: 25px;
             position: absolute;
-            content: "";
-            display: block;
-            width: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            content: "+";
+             width: 25px;
             height: 25px;
             background-size: cover;
             top: 50%;
-            left: -55px;
+            left: -20px;
             transform: translate(-50%, -50%);
             transition: background 0.3s ease;
         }
     }
 
-    &--add .base-button__text::before {
-        background: url('../../assets/plus.svg') no-repeat center;
-    }
-
     &:hover {
         background-color: #fff;
         color: #ff4858;
-
-        &.base-button--add .base-button__text::before {
-            background: url('../../assets/plus-hover.svg') no-repeat center;
-        }
-
     }
 }
 </style>

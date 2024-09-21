@@ -107,4 +107,11 @@ export default {
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .sidebar {
+    padding: 10px 0px;
+  }
+}
+
 </style>

@@ -9,7 +9,6 @@
               class="search-input__input"
               placeholder="Search VIN"
               v-model="searchQuery"
-              @input="fetchCars"
             />
           </div>
         </div>
@@ -34,6 +33,7 @@
         <AppBaseButton text="Add Vehicle" type="add" />
       </div>
     </div>
+
     <ul class="cars-list__items">
       <li
         class="cars-list__item"
@@ -41,22 +41,23 @@
         :key="car.vin"
       >
         <AppCarCard
-          :title="car.title"
-          :vin="car.vin"
+          :title="String(car.title)"
+          :vin="String(car.vin)"
           :image="car.placeholder"
         />
       </li>
     </ul>
+
     <div class="cars-list__footer">
       <span class="cars-list__info">
-        Showing {{ cars.length }} out of {{ total }}
+        Showing {{ cars.length*page }} out of {{ total }}
       </span>
       <div class="cars-list__pagination">
         <div class="pagination">
           <button
             class="pagination__button"
             :disabled="page === 1"
-            @click="page--"
+            @click="changePage(-1)"
           >
             &lt;
           </button>
@@ -69,7 +70,7 @@
           <button
             class="pagination__button"
             :disabled="page === lastPage"
-            @click="page++"
+            @click="changePage(1)"
           >
             >
           </button>
@@ -107,6 +108,10 @@ export default {
     perPage () {
       this.page = 1
       this.fetchCars()
+    },
+    searchQuery () {
+      this.page = 1
+      this.fetchCars()
     }
   },
   methods: {
@@ -128,6 +133,10 @@ export default {
         .catch((error) => {
           console.error('Error fetching cars:', error)
         })
+    },
+    changePage (increment) {
+      const nextPage = this.page + increment
+      this.page = (nextPage > 0 && nextPage <= this.lastPage) ? nextPage : this.page
     }
   },
   mounted () {
@@ -138,6 +147,10 @@ export default {
 
 <style lang="scss">
 .cars-list {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
   &__header {
     display: flex;
     justify-content: space-between;
@@ -147,8 +160,8 @@ export default {
 
   &__controls {
     display: flex;
+    flex-basis: 700px;
     align-items: center;
-    width: 60%;
   }
 
   &__search{
@@ -158,6 +171,7 @@ export default {
 
   &__items {
     list-style: none;
+    height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 40px;
@@ -202,4 +216,30 @@ export default {
     }
   }
 }
+
+@media (max-width: 1024px) {
+  .cars-list {
+    &__header {
+      display: block;
+    }
+
+    &__controls {
+      display: block;
+    }
+    &__search{
+      margin: 0;
+      margin-bottom: 20px;
+    }
+    &__select{
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    &__add-button{
+      display: flex;
+      justify-content: center;
+    }
+  }
+}
+
 </style>

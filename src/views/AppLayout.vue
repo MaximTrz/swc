@@ -47,6 +47,7 @@ body {
   grid-template-areas:
     "aside header header"
     "aside main main";
+
 }
 
 .layout__aside {
@@ -58,6 +59,16 @@ body {
   background-color: #fff;
   padding: 15px 30px;
   border-bottom: 1px solid #eee;
+}
+
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "aside"
+      "main";
+  }
 }
 
 </style>
