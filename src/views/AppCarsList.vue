@@ -50,7 +50,7 @@
 
     <div class="cars-list__footer">
       <span class="cars-list__info">
-        Showing {{ cars.length*page }} out of {{ total }}
+        Showing {{ cars.length }} out of {{ total }}
       </span>
       <div class="cars-list__pagination">
         <div class="pagination">
@@ -82,8 +82,8 @@
 
 <script>
 import axios from 'axios'
-import AppCarCard from './AppCarCard.vue'
-import AppBaseButton from './buttons/AppBaseButton.vue'
+import AppCarCard from '@/components/AppCarCard.vue'
+import AppBaseButton from '@/components/buttons/AppBaseButton.vue'
 export default {
   name: 'AppCarsList',
   components: {

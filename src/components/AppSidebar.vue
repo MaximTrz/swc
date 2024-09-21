@@ -1,20 +1,38 @@
 <template>
-    <div class="sidebar">
-        <div class="sidebar__logo">Demo Test</div>
-        <nav class="sidebar__nav">
-          <ul class="sidebar__menu">
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link sidebar__link--profile">Profile</a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link sidebar__link--vechicle sidebar__link--active ">Vehicles</a>
-            </li>
-            <li class="sidebar__item">
-              <a href="#" class="sidebar__link sidebar__link--settings">Setting</a>
-            </li>
-          </ul>
-        </nav>
-    </div>
+  <div class="sidebar">
+      <div class="sidebar__logo">Demo Test</div>
+      <nav class="sidebar__nav">
+        <ul class="sidebar__menu">
+          <li class="sidebar__item">
+            <router-link
+              :to="{ name: 'profile'}"
+              class="sidebar__link sidebar__link--profile"
+              active-class="sidebar__link--active"
+            >
+              Profile
+            </router-link>
+          </li>
+          <li class="sidebar__item">
+            <router-link
+              :to="{ name: 'home'}"
+              class="sidebar__link sidebar__link--vechicle"
+              active-class="sidebar__link--active"
+            >
+              Vehicles
+            </router-link>
+          </li>
+          <li class="sidebar__item">
+            <router-link
+              :to="{ name: 'settings'}"
+              class="sidebar__link sidebar__link--settings"
+              active-class="sidebar__link--active"
+            >
+              Setting
+            </router-link>
+          </li>
+        </ul>
+      </nav>
+  </div>
 </template>
 
 <script>
@@ -110,6 +128,7 @@ export default {
 
 @media (max-width: 1024px) {
   .sidebar {
+    height: auto;
     padding: 10px 0px;
   }
 }

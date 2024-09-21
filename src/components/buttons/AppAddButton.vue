@@ -13,10 +13,10 @@ export default {
         border: 1px solid #ff4858;
         color: #ff4858;
         background-color: #fff;
-        padding: 10px 15px;
+        font-size: 25px;
+        padding: 10px 20px;
         border-radius: 8px;
         cursor: pointer;
-        font-size: 14px;
         transition: background-color 0.3s ease, color 0.3s ease;
         &:hover{
             background-color: #ff4858;

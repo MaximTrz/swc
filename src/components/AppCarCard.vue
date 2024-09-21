@@ -42,7 +42,7 @@ export default {
     cursor: pointer;
     background-color: #f8faff;
     border-radius: 12px;
-    padding: 16px;
+    padding: 30px 16px 16px 16px;
     position: relative;
     font-family: Arial, sans-serif;
     text-align: center;
@@ -51,15 +51,19 @@ export default {
     }
     &__header {
         position: absolute;
-        top: 10px;
-        right: 10px;
+        top: 15px;
+        right: 15px;
     }
 
     &__menu-icon {
-        font-size: 18px;
+        font-size: 25px;
         color: #888;
         cursor: pointer;
-    }
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-15px);
+     }
 
     &__image {
         width: auto;
