@@ -27,7 +27,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 0;
+  padding: 10px 0;
   &__logo{
     font-size: 32px;
     font-weight: 700;
@@ -43,15 +43,18 @@ export default {
   }
 
   &__avatar {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    margin-left: 17px;
     margin-right: 10px;
   }
 
   &__username {
-    font-size: 16px;
-    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 22px;
+    color: rgba(41, 49, 72, 1);
   }
 
   &__profile {

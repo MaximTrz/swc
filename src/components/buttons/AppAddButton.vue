@@ -14,7 +14,7 @@ export default {
         color: #ff4858;
         background-color: #fff;
         font-size: 25px;
-        padding: 10px 20px;
+        padding: 5px 12px;
         border-radius: 8px;
         cursor: pointer;
         transition: background-color 0.3s ease, color 0.3s ease;

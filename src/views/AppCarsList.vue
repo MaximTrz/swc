@@ -59,21 +59,17 @@
             :disabled="page === 1"
             @click="changePage(-1)"
           >
-            &lt;
           </button>
           <span class="pagination__info">
-            Page
             <span class="pagination__page">{{ page }}</span>
-            of
+             <span class="pagination__text">of</span>
             <span class="pagination__page">{{ lastPage }}</span>
           </span>
           <button
-            class="pagination__button"
+            class="pagination__button --next"
             :disabled="page === lastPage"
             @click="changePage(1)"
-          >
-            >
-          </button>
+          ></button>
         </div>
       </div>
     </div>
@@ -149,13 +145,14 @@ export default {
 .cars-list {
   display: flex;
   flex-direction: column;
+  padding-top: 15px;
   height: 100%;
   justify-content: space-between;
   &__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 20px;
   }
 
   &__controls {
@@ -174,18 +171,18 @@ export default {
     height: 100%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 40px;
-    padding: 20px;
+    gap: 35px;
+    padding: 0 20px 20px 20px;
   }
 
   &__footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    border-top: 1px solid #ddd;
-    background-color: #f8f8f8;
-
+    padding: 0 20px 50px 20px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 22px;
     &__info {
       font-size: 14px;
     }

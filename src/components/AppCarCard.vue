@@ -81,6 +81,7 @@ export default {
 
   &__menu-icon {
     font-size: 25px;
+    padding: 0 5px 10px 5px;
     color: #888;
     cursor: pointer;
     display: flex;
@@ -117,7 +118,7 @@ export default {
 
   &__image {
     width: auto;
-    max-height: 135px;
+    max-height: 142px;
     border-radius: 8px;
   }
 
@@ -134,9 +135,9 @@ export default {
   }
 
   &__vin {
-    font-size: 14px;
-    color: #7a8ca1;
-    margin: 4px 0;
+    color: rgba(41, 49, 72, 0.6);
+    font-size: 15px;
+    font-weight: bold;
     border-bottom: 1px solid rgba(228, 228, 228, 1);
     padding-bottom: 20px;
   }
@@ -151,15 +152,18 @@ export default {
   &__status {
     display: flex;
     align-items: center;
-    font-size: 14px;
+    font-size: 15px;
+    font-weight: 700;
     background-color: rgba(243, 246, 248, 1);
     padding: 10px;
     border-radius: 5px;
   }
 
   &__time-left {
-    font-size: 14px;
-    color: #7a8ca1;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 16px;
+    color: rgba(41, 49, 72, 0.6)
   }
 }
 </style>

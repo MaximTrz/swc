@@ -1,3 +1,41 @@
-.paginaton{
-    
+.pagination{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 24px;
+    color: rgba(41, 49, 72, 0.8);
+    &__button {
+        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        outline: none;
+        margin-right: 15px;
+        background: url('../../assets/arrow.svg') no-repeat center;
+        border: none;
+        box-shadow: none;
+        &:focus,
+        &:disabled,
+        &:active {
+            outline: none;
+            border: none;
+            box-shadow: none; 
+        }
+        
+        &.--next {
+            margin-right: 0;
+            margin-left: 15px;
+            transform: scaleX(-1);
+        }
+    }
+    &__page{
+        border: 2px solid rgba(228, 228, 228, 1);
+        border-radius: 6px;
+        padding: 6px 11px;
+    }
+    &__text{
+        display: inline-block;
+        padding: 0 20px;
+    }
 }

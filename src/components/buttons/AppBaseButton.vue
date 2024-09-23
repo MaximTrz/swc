@@ -63,29 +63,33 @@ export default {
   background-color: #ff4858;
   border: 1px solid #ff4858;
   outline: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 1px;
   white-space: nowrap;
   color: #fff;
-  padding: 10px 15px 10px 40px;
+  padding: 10px 15px 10px 65px;
   border-radius: 8px;
   cursor: pointer;
-  font-size: 14px;
   transition: background-color 0.3s ease, color 0.3s ease;
-
   .base-button__text {
       position: relative;
+      text-transform: uppercase;
       &::before {
           padding: 0;
-          font-size: 25px;
+          font-size: 35px;
           position: absolute;
           display: flex;
+          font-weight: normal;
           justify-content: center;
           align-items: center;
           content: "+";
-           width: 25px;
+          width: 25px;
           height: 25px;
           background-size: cover;
           top: 50%;
-          left: -20px;
+          left: -40px;
           transform: translate(-50%, -50%);
           transition: background 0.3s ease;
       }
