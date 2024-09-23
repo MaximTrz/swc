@@ -7,16 +7,22 @@
             <img src="../assets/Photo.jpg" alt="User" class="header__avatar" />
             <span class="header__username">John Doe</span>
           </div>
+          <div class="header__lang">
+              <AppLangSelect/>
+          </div>
         </div>
       </div>
 </template>
 
 <script>
 import AppAddButton from '@/components/buttons/AppAddButton.vue'
+import AppLangSelect from './AppLangSelect.vue'
+
 export default {
   name: 'AppHeader',
   components: {
-    AppAddButton
+    AppAddButton,
+    AppLangSelect
   }
 }
 
@@ -60,7 +66,16 @@ export default {
   &__profile {
     display: flex;
     align-items: center;
+    margin-right: 40px;
+  }
+}
 
+@media (max-width: 768px) {
+  .header {
+    display: block;
+    &__logo{
+      margin-bottom: 20px;
+    }
   }
 }
 </style>

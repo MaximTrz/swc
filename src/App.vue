@@ -63,8 +63,8 @@ body {
 
 @media (max-width: 1024px) {
   .layout {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto 1fr;
     grid-template-areas:
       "header"
       "aside"
