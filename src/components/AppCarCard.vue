@@ -17,7 +17,7 @@
         <span class="car-card__status">
           30/30
         </span>
-        <span class="car-card__time-left">3 days left</span>
+        <span class="car-card__time-left">{{ getData(created) }}</span>
       </div>
     </div>
   </div>
@@ -38,6 +38,10 @@ export default {
     image: {
       type: String,
       required: true
+    },
+    created: {
+      type: Number,
+      required: true
     }
   },
   data () {
@@ -54,6 +58,11 @@ export default {
     },
     closeMenu () {
       this.isMenuOpen = false
+    },
+    getData (date) {
+      let formattedDate = new Date(date * 1000)
+      formattedDate = formattedDate.toLocaleDateString()
+      return formattedDate
     }
   }
 }

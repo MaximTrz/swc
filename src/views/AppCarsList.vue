@@ -44,6 +44,7 @@
           :title="String(car.title)"
           :vin="String(car.vin)"
           :image="car.placeholder"
+          :created="car.created_at"
         />
       </li>
     </ul>
@@ -130,6 +131,7 @@ export default {
           console.error('Error fetching cars:', error)
         })
     },
+
     changePage (increment) {
       const nextPage = this.page + increment
       this.page = (nextPage > 0 && nextPage <= this.lastPage) ? nextPage : this.page
