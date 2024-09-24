@@ -45,6 +45,7 @@
           :vin="String(car.vin)"
           :image="car.placeholder"
           :created="car.created_at"
+          :anglesCount="car.angles_count"
         />
       </li>
     </ul>

@@ -14,9 +14,9 @@
       <h3 class="car-card__title">{{ title }}</h3>
       <p class="car-card__vin">{{ vin }}</p>
       <div class="car-card__footer">
-        <span class="car-card__status">
-          30/30
-        </span>
+      <span :class="getChecked">
+        {{ anglesCount }}/30
+      </span>
         <span class="car-card__time-left">{{ getData(created) }}</span>
       </div>
     </div>
@@ -24,6 +24,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'CarCard',
   props: {
@@ -42,6 +43,9 @@ export default {
     created: {
       type: Number,
       required: true
+    },
+    anglesCount: {
+      type: Number
     }
   },
   data () {
@@ -64,8 +68,17 @@ export default {
       formattedDate = formattedDate.toLocaleDateString()
       return formattedDate
     }
+  },
+  computed: {
+    getChecked () {
+      return {
+        'car-card__status': true,
+        '--checked': this.anglesCount === 30
+      }
+    }
   }
 }
+
 </script>
 
 <style lang="scss">
@@ -73,7 +86,7 @@ export default {
   cursor: pointer;
   background-color: #f8faff;
   border-radius: 12px;
-  padding: 30px 16px 16px 16px;
+  padding: 25px 16px 16px 16px;
   position: relative;
   text-align: center;
 
@@ -126,7 +139,7 @@ export default {
 
   &__image {
     width: auto;
-    max-height: 142px;
+    max-height: 150px;
     border-radius: 8px;
   }
 
@@ -165,6 +178,18 @@ export default {
     background-color: rgba(243, 246, 248, 1);
     padding: 10px;
     border-radius: 5px;
+    &.--checked{
+      background-color: #e4f5dd;
+      color: #7fc75e;
+      &::before{
+        content: '';
+        width: 20px;
+        height: 20px;
+        background-image: url('../assets/check.svg');
+        background-size: contain;
+        margin-right: 10px;
+      }
+    }
   }
 
   &__time-left {
