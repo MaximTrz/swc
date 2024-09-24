@@ -50,6 +50,11 @@ export default {
   height: 100%;
   padding: 20px 0;
   text-align: center;
+  background-image: url('../assets/wave.svg');
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  background-size: 120% 300px;
   &__logo {
     margin-top: 10px;
     font-size: 24px;
@@ -80,6 +85,7 @@ export default {
     font-size: 16px;
     display: block;
     text-align: center;
+    border-left: 2px solid #1e1e1e;;
 
     padding: 15px 0 15px 0px;
 

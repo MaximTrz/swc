@@ -75,7 +75,6 @@ export default {
   border-radius: 12px;
   padding: 30px 16px 16px 16px;
   position: relative;
-  font-family: Arial, sans-serif;
   text-align: center;
 
   &:hover {

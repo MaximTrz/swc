@@ -17,6 +17,7 @@
 import AppSidebar from '@/components/AppSidebar'
 import AppHeader from '@/components/AppHeader'
 
+import './styles/base.scss'
 import './styles/blocks/search-input.scss'
 import './styles/blocks/base-select.scss'
 import './styles/blocks/pagination.scss'
@@ -31,6 +32,8 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
 
 body {
   margin: 0;

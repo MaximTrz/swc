@@ -1,6 +1,6 @@
 <template>
-    <div>
-        Страница в разработке
+    <div class="content">
+        <h2>Страница в разработке</h2>
     </div>
 </template>
 
